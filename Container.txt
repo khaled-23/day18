@@ -1,0 +1,45 @@
+Q1:
+hey from message1
+
+
+Q2:
+it always going to print:-
+hey from message1
+hey from message2
+
+-because getMessage2 require data
+from getMessage1
+
+-@qualifier("1") before getMessage1
+-@qualifier("1") before parameter data in getMessage2
+
+
+Q3:
+either this:-
+hey from message1
+hey from message3
+hey from message2
+or this:-
+hey from message3
+hey from message2
+hey from message1
+
+-getMessage2 doesn't come before getMessage3
+because getMessage2 require data from getMessage3
+using @Qualifier help us to semi-order the code execution
+
+
+Q4:
+either this:-
+hey from message1
+hey from main controller
+hey from message3
+hey from message2
+or this:-
+hey from message3
+hey from message2
+hey from message1
+hey from main controller
+
+-getMessage2 and MainController() require data from getMessage3 and getMessage1
+-we use @Qualifier because Springboot doesn't prioritize methods without parameters over methods with parameter when running code execution
