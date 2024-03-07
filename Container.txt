@@ -43,3 +43,19 @@ hey from main controller
 
 -getMessage2 and MainController() require data from getMessage3 and getMessage1
 -we use @Qualifier because Springboot doesn't prioritize methods without parameters over methods with parameter when running code execution
+
+
+
+Q5:
+either this:-
+hey from message1
+hey from message3
+hey from message2
+hey from main controller
+or this:-
+hey from message3
+hey from message2
+hey from main controller
+hey from message1
+
+"hey from main controller" request data from getMessage2 that request getMessage3 Springboot will always do them in the same order, except getMessage1 which Springboot might do it before them or after them.
